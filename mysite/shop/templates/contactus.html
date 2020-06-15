@@ -1,0 +1,120 @@
+{% extends 'all_templates.html' %}
+
+{% block title %} Contact {% endblock %}
+
+{% block body %}
+
+<div class="container" style="margin-bottom: 60px; margin-top: 47px;">
+    <div class="row justify-content-md-center ">
+        <div class="col-sm-3">
+            <div class="row con-text"><label><a class="qur" target="1">Product Related Queries/Policy</a></label></div>
+            <div class="row con-text"><label><a class="qur" target="2">Order Related Queries</a></label></div>
+            <div class="row con-text"><label><a class="qur" target="3">Order Modification/Cancellation</a></label></div>
+            <div class="row con-text"><label><a class="qur" target="4">Delivery Related Queries</a></label></div>
+            <div class="row con-text"><label><a class="qur" target="5">Return or Exchange</a></label></div>
+            <div class="row con-text"><label><a class="qur" target="6">Contact Us</a></label></div>
+        </div>
+        <div id="qu-1" class="col-sm-9 con-de">
+            <div class="con-detail">
+                Product Related Queries/Policy Related content
+            </div>
+        </div>
+        <div id="qu-2" class="col-sm-9 con-de" style="display:none;">
+            <div class="con-detail">Order Related Queries Related content</div>
+        </div>
+        <div id="qu-3" class="col-sm-9 con-de" style="display:none;">
+            <div class="con-detail">Order Modification/Cancellation Related content
+            </div>
+        </div>
+        <div id="qu-4" class="col-sm-9 con-de" style="display:none;">
+            <div class="con-detail">Delivery Related Queries Related content</div>
+        </div>
+        <div id="qu-5" class="col-sm-9 con-de" style="display:none;">
+            <div class="con-detail">Return or Exchange Related content</div>
+        </div>
+        <div id="qu-6" class="col-sm-9 con-de" style="display:none;">
+            <div class="con-detail">
+                <div class="col-sm-6">
+                    <div style="border-bottom: 2px solid deeppink; margin-bottom: 23px;">
+                        <label style="font-size: 30px;">CONTACT US</label>
+                    </div>
+                    <div>
+                        <h4>You can reach us via email or through phone</h4>
+                        <h5><b>Email: Company email id @ gmail.com</b></h5>
+                        <h5><b>Phone:</b> +91 - 0000000000 (10:00 am - 07:00 pm all 7 days )</h5><br>
+                        <h5><b>Address:</b></h5>
+                        <span>
+                            Comapany name Here<br>
+                            address 1 <br>
+                            address 2 <br>
+                            address 3<br>
+                            address 5<br>
+                        </span>
+                    </div>
+                </div>
+                <div class="col-sm-6" style="box-shadow: 0 0 10px rgba(186, 186, 186, 0.43);">
+                    <div style="background-color: #ff42a8; color: white;">
+                        <h3>Enquiry Form</h3>
+                    </div>
+                    <div>
+                        <div class="group-d">
+                            <input name="mobileno" id="mobileno" type="text" style="width: 100%;" required>
+                            <span class="highlight"></span>
+                            <span class="bar-d"></span>
+                            <label class="names">Mobile No </label>
+                        </div>
+                        <div class="group-d">
+                            <input name="email-add" id="email-add" type="text" style="width: 100%;" required>
+                            <span class="highlight"></span>
+                            <span class="bar-d"></span>
+                            <label class="names">Email ID </label>
+                        </div>
+                        <div class="group-d">
+                            <textarea name="suggestion" id="suggestion" type="text"
+                                      placeholder="Enter your message here" style="width: 100%;" required></textarea>
+                            <span class="highlight"></span>
+                            <span class="bar-d"></span>
+                        </div>
+                        <button type="submit" id="contact-sub" class="btn">Register</button>
+                    </div>
+                </div>
+                <div class="col-sm-12">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2253.430162002163!2d72.82020885225288!3d19.432365653236978!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7a96c1825d3df%3A0x78c1f789981ced46!2sNutan%20Vidyalaya!5e0!3m2!1sen!2sin!4v1590051634078!5m2!1sen!2sin"
+                            width="100%" height="300" frameborder="0" style="border:0; margin-top: 20px;"
+                            allowfullscreen=""
+                            aria-hidden="false" tabindex="0"></iframe>
+                </div>
+            </div>
+        </div>
+
+
+        </div>
+    </div>
+    {% endblock %}
+
+    {% block script %}
+    <script>
+jQuery(function() {
+  jQuery('.qur').click(function() {
+    jQuery('.con-de').hide();
+    jQuery('#qu-' + $(this).attr('target')).show();
+  });
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+    {% endblock %}

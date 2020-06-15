@@ -1,0 +1,31 @@
+{% extends 'all_templates.html' %}
+
+{% block title %} Register Page {% endblock %}
+
+{% block body %}
+
+<form action="forgetpassword" method="POST" autocomplete="off">
+    {% csrf_token %}
+    <div data-aos="fade-right">
+        <div class="d-flex justify-content-center">
+            <div class="row box">
+                <div class="col-sm-12">
+                    <label class="reg-lbl" style="margin-left: 89px;"> Forget Password </label>
+                    <div style="margin-bottom: 8%;">
+                    </div>
+                    <div class="group">
+                        <input name="fname" type="text" style="width: 438px;" required>
+                        <span class="highlight"></span>
+                        <span class="bar"></span>
+                        <label class="names">Enter Email Here</label>
+                    </div>
+                    <button type="submit" id="sendemail" class="btn login-btn reg-btn">Send Email</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+{% endblock %}
+
+{% block script %} {% endblock %}

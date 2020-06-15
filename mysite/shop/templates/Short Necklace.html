@@ -1,0 +1,31 @@
+{% extends 'all_templates.html' %}
+{% load static %}
+{% block title %} Short Necklace {% endblock %}
+
+{% block body %}
+<h1> Short Necklace Page </h1>
+<div class="row" style="margin:auto;">
+
+    <div class="col-sm-12">
+        {% for b in product%}
+        <div class="col-xs-6 col-md-3 prod-card">
+            <div class="prod-img">
+                <img class="prod-box" src="{% static 'images/model-4255847_1920.jpg' %}"
+                     style="width: fit-content;height: 379px; border-radius: 8px;">
+                <div class="overlay">
+                    <div class="text">
+                        <button type="button" class="btn btn-warning buynow-btn">Buy Now</button>
+                    </div>
+                </div>
+            </div>
+            <div class="prod-text">
+                <h3>Product Title {{b}}</h3>
+                <h5>Product Price</h5>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
+
+{% block script %} {% endblock %}

@@ -1,0 +1,88 @@
+{% extends 'all_templates.html' %}
+
+{% block title %} Register Page {% endblock %}
+
+{% block body %}
+
+<form action="register" method="POST" autocomplete="off">
+    {% csrf_token %}
+    <div data-aos="fade-right">
+        <div class="d-flex justify-content-center">
+            <div class="row box">
+                <div class="col-sm-12">
+                    <label class="reg-lbl"> Register Now </label>
+                    <div style="margin-bottom: 8%;">
+
+                        <button type="button" class="btn btn-fb"
+                                style="background-color: #3b5998 !important; color:white;margin-top: 7px; margin-left: 110px;">
+                            <i class="fa fa-facebook-f pr-1" style="color:white"></i> Facebook
+                        </button>
+
+                        <button type="button" class="btn btn-gplus"
+                                style="background-color:#dd4b39 !important; color:white; margin-top: 7px;"><i
+                                class="fa fa-google-plus pr-1"></i> Google
+                        </button>
+                    </div>
+
+                    <div class="group">
+                        <input name="fname" type="text" style="width: 438px;" required>
+                        <span class="highlight"></span>
+                        <span class="bar"></span>
+                        <label class="names">First Name</label>
+                    </div>
+                    <div class="group">
+                        <input name="lname" id="lname" type="text" style="width: 438px;" required>
+                        <span class="highlight"></span>
+                        <span class="bar"></span>
+                        <label class="names">Last Name</label>
+                    </div>
+
+                    <div class="group">
+                        <input name="username" id="username" type="text" style="width: 438px;" required>
+                        <span class="highlight"></span>
+                        <span class="bar"></span>
+                        <label class="names">Username</label>
+                        {% if username_alert == 'yes' %}
+                            <label style="color:red">Username Must Be Under 10 Characters</label>
+                        {% endif %}
+                        {% if username_LN_alert == 'yes' %}
+                            <label style="color:red">Username Should Only Contain Letters And Numbers</label>
+                        {% endif %}
+                    </div>
+
+                    <div class="group">
+                        <input name="email_phone" id="email_phone" type="text" style="width: 438px;" required>
+                        <span class="highlight"></span>
+                        <span class="bar"></span>
+                        <label class="names">Email/Phone</label>
+                    </div>
+                    <div class="group">
+                        <input name="password" id="password" type="password" style="width: 438px;" required>
+                        <span class="highlight"></span>
+                        <span class="bar"></span>
+                        <label class="names">Password </label>
+                    </div>
+                    <div class="group">
+                        <input name="conpassword" id="conpassword" type="password" style="width: 438px;" required>
+                        <span class="highlight"></span>
+                        <span class="bar"></span>
+                        <label class="names">Confirm Password </label>
+                        {% if password == 'yes' %}
+                            <label style="color:red">Password Do Not Match</label>
+                        {% endif %}
+                        {% if password2 == 'yes' %}
+                            <label style="color:red">Password Must Be More Than 8 Characters or Number</label>
+                        {% endif %}
+                    </div>
+                    <!--                    <a type="submit" name="regbutton" href="" id="" class="btn login-btn reg-btn">Register</a>-->
+                    <button type="submit" id="regbtn" class="btn login-btn reg-btn">Register</button>
+                    <div class="span-lbl"><span>Already have an account?  </span><b style="color:blue;">Log In</b></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+{% endblock %}
+
+{% block script %} {% endblock %}

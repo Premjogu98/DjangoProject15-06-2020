@@ -1,0 +1,181 @@
+{% extends 'all_templates.html' %}
+{% load static %}
+
+{% block title %} All Jewellery Sets {% endblock %}
+
+{% block body %}
+<h1> All Jewellery Sets Page </h1>
+<div class="container">
+    <div class="row justify-content-md-center">
+        <button type="button" id="jewellery-set-btn" class="btn btn-info">
+            Jewellery Sets <span class="badge">5</span>
+        </button>
+
+    </div>
+    <div class="row justify-content-md-center jew-sets-drop" style="display: none;">
+        <div class="col-sm-2 md-center jew-sets-drop-item">
+            <a class="sets" id="All-Set" target="0"><h4>All Set</h4></a>
+        </div>
+        <div class="col-sm-2 jew-sets-drop-item">
+            <a class="sets" id="Haram-Set" target="1"><h4>Haram Set</h4></a>
+        </div>
+        <div class="col-sm-2 jew-sets-drop-item">
+            <a class="sets" id="Long-Necklace-Sets" target="2"><h4>Long Necklace Sets</h4></a>
+        </div>
+        <div class="col-sm-2 jew-sets-drop-item">
+            <a class="sets" id="Short-Necklace" target="3"><h4>Short Necklace</h4></a>
+        </div>
+        <div class="col-sm-2 jew-sets-drop-item">
+            <a class="sets" id="Pendant-Sets" target="4" ><h4>Pendant Sets</h4></a>
+        </div>
+        <div class="col-sm-2 jew-sets-drop-item">
+            <a class="sets" id="Mangalsutra-Sets" target="5"><h4>Mangalsutra Sets</h4></a>
+        </div>
+
+    </div>
+</div>
+
+<div id='jew-grid' class="row">
+    <div class="col-sm-2">
+        <h3>Filters</h3>
+    </div>
+    <div id="jew-sets-drop-item-0" class="col-sm-10 jew-set" >
+        {% for b in product%}
+        <div class="col-xs-6 col-md-3 prod-card">
+            <div class="prod-img">
+                <img class="prod-box" src="{% static 'images/model-4255847_1920.jpg' %}"
+                     style="width: fit-content;height: 379px; border-radius: 8px;">
+                <div class="overlay">
+                    <div class="text">
+                        <button type="button" class="btn btn-warning buynow-btn">Buy Now</button>
+                    </div>
+                </div>
+            </div>
+            <div class="prod-text">
+                <h3>Product Title {{b}}</h3>
+                <h5>Product Price</h5>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    <div id="jew-sets-drop-item-1" class="col-sm-10 jew-set" style="display:none;">
+        <h1> Haram Set </h1>
+        {% for b in product%}
+        <div class="col-xs-6 col-md-3 prod-card">
+            <div class="prod-img">
+                <img class="prod-box" src="{% static 'images/model-4255847_1920.jpg' %}"
+                     style="width: fit-content;height: 379px; border-radius: 8px;">
+                <div class="overlay">
+                    <div class="text">
+                        <button type="button" class="btn btn-warning buynow-btn">Buy Now</button>
+                    </div>
+                </div>
+            </div>
+            <div class="prod-text">
+                <h3>Product Title {{b}}</h3>
+                <h5>Product Price</h5>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    <div id="jew-sets-drop-item-2" class="col-sm-10 jew-set" style="display:none;">
+        <h1> Long Necklace Sets </h1>
+        {% for b in product%}
+        <div class="col-xs-6 col-md-3 prod-card">
+            <div class="prod-img">
+                <img class="prod-box" src="{% static 'images/model-4255847_1920.jpg' %}"
+                     style="width: fit-content;height: 379px; border-radius: 8px;">
+                <div class="overlay">
+                    <div class="text">
+                        <button type="button" class="btn btn-warning buynow-btn">Buy Now</button>
+                    </div>
+                </div>
+            </div>
+            <div class="prod-text">
+                <h3>Product Title {{b}}</h3>
+                <h5>Product Price</h5>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    <div id="jew-sets-drop-item-3" class="col-sm-10 jew-set" style="display:none;">
+        <h1> Short Necklace </h1>
+        {% for b in product%}
+        <div class="col-xs-6 col-md-3 prod-card">
+            <div class="prod-img">
+                <img class="prod-box" src="{% static 'images/model-4255847_1920.jpg' %}"
+                     style="width: fit-content;height: 379px; border-radius: 8px;">
+                <div class="overlay">
+                    <div class="text">
+                        <button type="button" class="btn btn-warning buynow-btn">Buy Now</button>
+                    </div>
+                </div>
+            </div>
+            <div class="prod-text">
+                <h3>Product Title {{b}}</h3>
+                <h5>Product Price</h5>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    <div id="jew-sets-drop-item-4" class="col-sm-10 jew-set" style="display:none;">
+        <h1> Pendant Sets </h1>
+        {% for b in product%}
+        <div class="col-xs-6 col-md-3 prod-card">
+            <div class="prod-img">
+                <img class="prod-box" src="{% static 'images/model-4255847_1920.jpg' %}"
+                     style="width: fit-content;height: 379px; border-radius: 8px;">
+                <div class="overlay">
+                    <div class="text">
+                        <button type="button" class="btn btn-warning buynow-btn">Buy Now</button>
+                    </div>
+                </div>
+            </div>
+            <div class="prod-text">
+                <h3>Product Title {{b}}</h3>
+                <h5>Product Price</h5>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    <div id="jew-sets-drop-item-5" class="col-sm-10 jew-set" style="display:none;">
+        <h1> Mangalsutra Sets </h1>
+        {% for b in product%}
+        <div class="col-xs-6 col-md-3 prod-card">
+            <div class="prod-img">
+                <img class="prod-box" src="{% static 'images/model-4255847_1920.jpg' %}"
+                     style="width: fit-content;height: 379px; border-radius: 8px;">
+                <div class="overlay">
+                    <div class="text">
+                        <button type="button" class="btn btn-warning buynow-btn">Buy Now</button>
+                    </div>
+                </div>
+            </div>
+            <div class="prod-text">
+                <h3>Product Title {{b}}</h3>
+                <h5>Product Price</h5>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+</div>
+
+{% endblock %}
+
+{% block script %}
+<script>
+$(document).ready(function(){
+  $("#jewellery-set-btn").click(function(){
+  $(".jew-sets-drop").toggle('slow');
+  });
+});
+
+jQuery(function() {
+  jQuery('.sets').click(function() {
+    jQuery('.jew-set').hide();
+    jQuery('#jew-sets-drop-item-' + $(this).attr('target')).show();
+  });
+});
+</script>
+{% endblock %}
