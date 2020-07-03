@@ -77,11 +77,11 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'jewellerydb',
+        'NAME': 'django_db',
         'HOST': 'localhost',
-        'PORT': '3306',
-        'user': 'root',
-        'PASSWORD': '1234',
+        'PORT': "",
+        'USER': 'user',
+        'PASSWORD': '123456',
     }
 }
 
