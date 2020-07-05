@@ -24,6 +24,6 @@ urlpatterns = [
     path('Mangalsutra-Sets', views.Mangalsutra_Sets_fun, name='Mangalsutra-Sets'),
     path('Earrings', views.Earrings_fun, name='Earrings'),
     path('Maang-Tikkas-And-Daminis', views.Maang_Tikkas_And_Daminis_fun, name='Maang-Tikkas-And-Daminis'),
-    path('product-<str:title>', views.product),
+    path('product/<title>', views.product),
 
 ]

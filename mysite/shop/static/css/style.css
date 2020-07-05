@@ -750,10 +750,11 @@ box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 .prod-text{
 float: left;
+margin-top: 17px;
 }
 
 .jew-sets-drop{
-box-shadow: 1px 1px 20px 1px rgba(255, 62, 222, 0.43);
+box-shadow: 1px 1px 20px 1px rgba(186, 186, 186, 0.43);
     background-color: white;
     margin-top: 16px;
     margin-bottom: 14px;

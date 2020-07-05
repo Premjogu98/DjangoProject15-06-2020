@@ -40,120 +40,120 @@
         <h3>Filters</h3>
     </div>
     <div id="jew-sets-drop-item-0" class="col-sm-10 jew-set" >
-        {% for b in product%}
+        {% for product in Jewellery%}
         <div class="col-xs-6 col-md-3 prod-card">
             <div class="prod-img">
-                <img class="prod-box" src="{% static 'images/model-4255847_1920.jpg' %}"
+                <img class="prod-box" src="/media/{{product.image}}"
                      style="width: fit-content;height: 379px; border-radius: 8px;">
                 <div class="overlay">
                     <div class="text">
-                        <button type="button" class="btn btn-warning buynow-btn">Buy Now</button>
+                        <button type="button" class="btn btn-warning buynow-btn"><a href="product/{{product.product_name}}">Buy Now</a></button>
                     </div>
                 </div>
             </div>
             <div class="prod-text">
-                <h3>Product Title {{b}}</h3>
-                <h5>Product Price</h5>
+                <h5>{{product.product_name}}</h5>
+                <h5><b>₹</b>{{product.price}}</h5>
             </div>
         </div>
         {% endfor %}
     </div>
     <div id="jew-sets-drop-item-1" class="col-sm-10 jew-set" style="display:none;">
         <h1> Haram Set </h1>
-        {% for b in product%}
+        {% for product in Haram_Set%}
         <div class="col-xs-6 col-md-3 prod-card">
             <div class="prod-img">
-                <img class="prod-box" src="{% static 'images/model-4255847_1920.jpg' %}"
+                <img class="prod-box" src="/media/{{product.image}}"
                      style="width: fit-content;height: 379px; border-radius: 8px;">
                 <div class="overlay">
                     <div class="text">
-                        <button type="button" class="btn btn-warning buynow-btn">Buy Now</button>
+                        <button type="button" class="btn btn-warning buynow-btn"><a href="product/{{product.product_name}}">Buy Now</a></button>
                     </div>
                 </div>
             </div>
             <div class="prod-text">
-                <h3>Product Title {{b}}</h3>
-                <h5>Product Price</h5>
+                <h5>{{product.product_name}}</h5>
+                <h5><b>₹</b>{{product.price}}</h5>
             </div>
         </div>
         {% endfor %}
     </div>
     <div id="jew-sets-drop-item-2" class="col-sm-10 jew-set" style="display:none;">
         <h1> Long Necklace Sets </h1>
-        {% for b in product%}
+        {% for product in long_Necklace_Sets%}
         <div class="col-xs-6 col-md-3 prod-card">
             <div class="prod-img">
-                <img class="prod-box" src="{% static 'images/model-4255847_1920.jpg' %}"
+                <img class="prod-box" src="/media/{{product.image}}"
                      style="width: fit-content;height: 379px; border-radius: 8px;">
                 <div class="overlay">
                     <div class="text">
-                        <button type="button" class="btn btn-warning buynow-btn">Buy Now</button>
+                        <button type="button" class="btn btn-warning buynow-btn"><a href="product/{{product.product_name}}">Buy Now</a></button>
                     </div>
                 </div>
             </div>
             <div class="prod-text">
-                <h3>Product Title {{b}}</h3>
-                <h5>Product Price</h5>
+                <h5>{{product.product_name}}</h5>
+                <h5><b>₹</b>{{product.price}}</h5>
             </div>
         </div>
         {% endfor %}
     </div>
     <div id="jew-sets-drop-item-3" class="col-sm-10 jew-set" style="display:none;">
         <h1> Short Necklace </h1>
-        {% for b in product%}
+        {% for product in Short_Necklace%}
         <div class="col-xs-6 col-md-3 prod-card">
             <div class="prod-img">
-                <img class="prod-box" src="{% static 'images/model-4255847_1920.jpg' %}"
+                <img class="prod-box" src="/media/{{product.image}}"
                      style="width: fit-content;height: 379px; border-radius: 8px;">
                 <div class="overlay">
                     <div class="text">
-                        <button type="button" class="btn btn-warning buynow-btn">Buy Now</button>
+                        <button type="button" class="btn btn-warning buynow-btn"><a href="product/{{product.product_name}}">Buy Now</a></button>
                     </div>
                 </div>
             </div>
             <div class="prod-text">
-                <h3>Product Title {{b}}</h3>
-                <h5>Product Price</h5>
+                <h5>{{product.product_name}}</h5>
+                <h5><b>₹</b>{{product.price}}</h5>
             </div>
         </div>
         {% endfor %}
     </div>
     <div id="jew-sets-drop-item-4" class="col-sm-10 jew-set" style="display:none;">
         <h1> Pendant Sets </h1>
-        {% for b in product%}
+        {% for product in Pendant_Sets%}
         <div class="col-xs-6 col-md-3 prod-card">
             <div class="prod-img">
-                <img class="prod-box" src="{% static 'images/model-4255847_1920.jpg' %}"
+                <img class="prod-box" src="/media/{{product.image}}"
                      style="width: fit-content;height: 379px; border-radius: 8px;">
                 <div class="overlay">
                     <div class="text">
-                        <button type="button" class="btn btn-warning buynow-btn">Buy Now</button>
+                        <button type="button" class="btn btn-warning buynow-btn"><a href="product/{{product.product_name}}">Buy Now</a></button>
                     </div>
                 </div>
             </div>
             <div class="prod-text">
-                <h3>Product Title {{b}}</h3>
-                <h5>Product Price</h5>
+                <h5>{{product.product_name}}</h5>
+                <h5><b>₹</b>{{product.price}}</h5>
             </div>
         </div>
         {% endfor %}
     </div>
     <div id="jew-sets-drop-item-5" class="col-sm-10 jew-set" style="display:none;">
         <h1> Mangalsutra Sets </h1>
-        {% for b in product%}
+        {% for product in Mangalsutra_Sets %}
         <div class="col-xs-6 col-md-3 prod-card">
             <div class="prod-img">
-                <img class="prod-box" src="{% static 'images/model-4255847_1920.jpg' %}"
+                <img class="prod-box" src="/media/{{product.image}}"
                      style="width: fit-content;height: 379px; border-radius: 8px;">
                 <div class="overlay">
                     <div class="text">
-                        <button type="button" class="btn btn-warning buynow-btn">Buy Now</button>
+                        <button type="button" class="btn btn-warning buynow-btn"><a href="product/{{product.product_name}}">Buy Now</a></button>
                     </div>
                 </div>
             </div>
             <div class="prod-text">
-                <h3>Product Title {{b}}</h3>
-                <h5>Product Price</h5>
+                <h5>{{product.product_name}}</h5>
+                <h5><b>₹</b>{{product.price}}</h5>
             </div>
         </div>
         {% endfor %}

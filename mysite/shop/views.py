@@ -6,6 +6,7 @@ from .models import AllJewellerys,user,Product,Semi_Bridal_Sets,Short_Choker_Nec
 from django.contrib.auth.models import User , auth
 from django.contrib import messages
 from django.utils.datastructures import MultiValueDictKeyError
+from django.db import connection
 
 glob_login_username = ''
 glob_user = False
@@ -14,20 +15,20 @@ glob_user = False
 def index(request):
     global glob_user,glob_login_username
     # return HttpResponse('Hello World')  if you want print text then use HttpResponse
-    products = Product.objects.all()
-    semi_Bridal_Sets = Semi_Bridal_Sets.objects.all()
-    short_Choker_Necklace = Short_Choker_Necklace.objects.all()
-    long_Necklace_Sets = Long_Necklace_Sets.objects.all()
-    sliver_Earrings = Sliver_Earrings.objects.all()
-    golden_Earrings = Golden_Earrings.objects.all()
-    trending_design = Trending_design.objects.all()
+    Jewellery = AllJewellerys.objects.all()
+    Semi_Bridal_Sets = AllJewellerys.objects.raw("SELECT * FROM shop_alljewellerys WHERE category='Semi Bridal Sets';")
+    short_Choker_Necklace = AllJewellerys.objects.raw("SELECT * FROM shop_alljewellerys WHERE category='Short Choker Necklace';")
+    long_Necklace_Sets = AllJewellerys.objects.raw("SELECT * FROM shop_alljewellerys WHERE category='Long Necklace Sets';")
+    sliver_Earrings = AllJewellerys.objects.raw("SELECT * FROM shop_alljewellerys WHERE category='Sliver Earrings';")
+    Golden_Earrings = AllJewellerys.objects.raw("SELECT * FROM shop_alljewellerys WHERE category='Golden Earrings';")
 
     lis = []
     for i in range(0, 5):
         lis.append(i)
 
-    dics = {'name': 'Company Name', 'lastname': 'JOGU', 'count': lis ,'product' : products,'semi_Bridal_Sets' : semi_Bridal_Sets,'short_Choker_Necklace' : short_Choker_Necklace,
-            'long_Necklace_Sets': long_Necklace_Sets,'sliver_Earrings' : sliver_Earrings,'golden_Earrings' : golden_Earrings,'trending_design' : trending_design,'user': glob_user ,'username': glob_login_username}
+    dics = {'name': 'Company Name', 'lastname': 'JOGU', 'count': lis , 'All_Jewellery': Jewellery ,'Semi_Bridal_Sets':Semi_Bridal_Sets ,'short_Choker_Necklace':short_Choker_Necklace ,
+    'long_Necklace_Sets':long_Necklace_Sets,'sliver_Earrings':sliver_Earrings,'Golden_Earrings':Golden_Earrings,
+    'user': glob_user ,'username': glob_login_username}
     return render(request,'index.html',dics)
 
 
@@ -76,7 +77,7 @@ def handle_login(request):
         print(login_username)
         print(login_password)
         user1 = user.objects.all()
-        print(user1)
+        # print(user1)
         username = False
         password = False
          
@@ -145,80 +146,70 @@ def return_refund_replacement(request):
 
 
 def All_Jewellery_Sets(request):
-    lis = []
-    for i in range(0, 15):
-        lis.append(i)
-    dic = {'product':lis}
+
+    Jewellery = AllJewellerys.objects.all()
+    Haram_Set = AllJewellerys.objects.raw("SELECT * FROM shop_alljewellerys WHERE category='Haram Set';")
+    long_Necklace_Sets = AllJewellerys.objects.raw("SELECT * FROM shop_alljewellerys WHERE category='Long Necklace Sets';")
+    Short_Necklace = AllJewellerys.objects.raw("SELECT * FROM shop_alljewellerys WHERE category='Short Necklace';")
+    Pendant_Sets = AllJewellerys.objects.raw("SELECT * FROM shop_alljewellerys WHERE category='Pendant Sets';")
+    Mangalsutra_Sets = AllJewellerys.objects.raw("SELECT * FROM shop_alljewellerys WHERE category='Mangalsutra Sets';")
+
+    dic = {'Jewellery':Jewellery,'Haram_Set':Haram_Set,'long_Necklace_Sets':long_Necklace_Sets,'Short_Necklace':Short_Necklace
+     ,'Pendant_Sets':Pendant_Sets,'Mangalsutra_Sets':Mangalsutra_Sets}
+
     return render(request, 'All Jewellery Sets.html',dic)
 
 
 def Haram_Set(request):
-    lis = []
-    for i in range(0, 15):
-        lis.append(i)
-    dic = {'product': lis}
+    Haram_Set = AllJewellerys.objects.raw("SELECT * FROM shop_alljewellerys WHERE category='Haram Set';")
+
+    dic = {'Haram_Set': Haram_Set}
     return render(request, 'Haram Set.html',dic)
 
 
 def Long_Necklace_Sets_fun(request):
-    lis = []
-    for i in range(0, 15):
-        lis.append(i)
-    dic = {'product': lis}
+    long_Necklace_Sets = AllJewellerys.objects.raw("SELECT * FROM shop_alljewellerys WHERE category='Long Necklace Sets';")
+    
+    dic = {'long_Necklace_Sets': long_Necklace_Sets}
     return render(request, 'Long Necklace Sets.html',dic)
 
 
 def Short_Necklace_fun(request):
-    lis = []
-    for i in range(0, 15):
-        lis.append(i)
-    dic = {'product': lis}
+    Short_Necklace = AllJewellerys.objects.raw("SELECT * FROM shop_alljewellerys WHERE category='Short Necklace';")
+    dic = {'Short_Necklace': Short_Necklace}
     return render(request, 'Short Necklace.html',dic)
 
 
 def Pendant_Sets_fun(request):
-    lis = []
-    for i in range(0, 15):
-        lis.append(i)
-    dic = {'product': lis}
+    Pendant_Sets = AllJewellerys.objects.raw("SELECT * FROM shop_alljewellerys WHERE category='Pendant Sets';")
+    dic = {'Pendant_Sets': Pendant_Sets}
     return render(request, 'Pendant Sets.html',dic)
 
 
 def Mangalsutra_Sets_fun(request):
-    lis = []
-    for i in range(0, 15):
-        lis.append(i)
-    dic = {'product': lis}
+    Mangalsutra_Sets = AllJewellerys.objects.raw("SELECT * FROM shop_alljewellerys WHERE category='Mangalsutra Sets';")
+    dic = {'Mangalsutra_Sets': Mangalsutra_Sets}
     return render(request, 'Mangalsutra Sets.html',dic)
 
 
 def Earrings_fun(request):
-    lis = []
-    for i in range(0, 15):
-        lis.append(i)
-    dic = {'product': lis}
+
+    sliver_Earrings = AllJewellerys.objects.raw("SELECT * FROM shop_alljewellerys WHERE category='Sliver Earrings';")
+    Golden_Earrings = AllJewellerys.objects.raw("SELECT * FROM shop_alljewellerys WHERE category='Golden Earrings';")
+
+    dic = {'sliver_Earrings': sliver_Earrings,'Golden_Earrings': Golden_Earrings}
     return render(request, 'Earrings.html',dic)
 
 
 def Maang_Tikkas_And_Daminis_fun(request):
-    lis = []
-    for i in range(0, 15):
-        lis.append(i)
-    dic = {'product': lis}
+    Maang_Tikkas_And_Daminis = AllJewellerys.objects.raw("SELECT * FROM shop_alljewellerys WHERE category='Maang Tikkas And Daminis';")
+    dic = {'Maang_Tikkas_And_Daminis': Maang_Tikkas_And_Daminis}
     return render(request, 'Maang Tikkas And Daminis.html',dic)
 
 
 def product(request,title):
-    title1 = title
-    dic = {'Product_title':title}
-    # return HttpResponse("<h1>{}</h1>".format(title))
-    products = user.objects.filter(Email_Phone=str(title1))
-    if products != "":
-        for i in products:
-            print(i.Password)
-    else:
-        print('Null')
-    print(products)
+    dic = {'title':title}
+    
     return render(request,'product.html',dic)
 
 def admin(request):

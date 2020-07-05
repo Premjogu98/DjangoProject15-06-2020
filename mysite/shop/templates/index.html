@@ -260,7 +260,6 @@
             </ul>
         </div>
     </div>
-
     <div>
         <div class="container">
             <h2>Shop by Category</h2>
@@ -276,128 +275,20 @@
             <div class="tab-content">
                 <div id="1" class="tab-pane fade in active">
                     <div class="row">
-                        {% for b in product %}
+                        {% for product in All_Jewellery %}
                         <div class="col-xs-4 col-md-2 tb">
                             <div class="card tab-card">
-                                <img src="/media/{{b.image}}" alt="Avatar" style="width:100%; height:243px;">
+                                <img src="/media/{{product.image}}" alt="Avatar" style="width:100%; height:243px;">
                                 <div class="container" style="width: 100%;">
-                                    {% if b.product_name|length > 17 %}
-                                    <div><label class="prod-name"><b>{{b.product_name|slice:17}}...</b></label>
+                                    {% if product.product_name|length > 25 %}
+                                    <div><label class="prod-name"><b>{{product.product_name|slice:25}}...</b></label>
                                     </div>
                                     {% else %}
-                                    <div><label class="prod-name"><b>{{b.product_name}}</b></label></div>
+                                    <div><label class="prod-name"><b>{{product.product_name}}</b></label></div>
                                     {% endif %}
-                                    <div><h5><b>₹</b> {{b.price}}</h5></div>
+                                    <div><h5><b>₹</b> {{product.price}}</h5></div>
                                     <div><h5> 10% off </h5></div>
-                                    <button type="submit" class="btn btn-warning buynow-btn"> <a href="product-{{b.product_name}}">Buy Now</a></button>
-                                </div>
-                            </div>
-                        </div>
-                        {% endfor %}
-                        {% for b in semi_Bridal_Sets%}
-                        <div class="col-xs-4 col-md-2 tb">
-                            <div class="card tab-card">
-                                <img src="/media/{{b.image}}" alt="Avatar" style="width:100%; height:243px;">
-                                <div class="container" style="width: 100%;">
-                                    {% if b.product_name|length > 17 %}
-                                    <div><label class="prod-name"><b>{{b.product_name|slice:17}}...</b></label>
-                                    </div>
-                                    {% else %}
-                                    <div><label class="prod-name"><b>{{b.product_name}}</b></label></div>
-                                    {% endif %}
-                                    <div><h5><b>₹</b> {{b.price}}</h5></div>
-                                    <div><h5> 10% off </h5></div>
-                                    <button type="submit" class="btn btn-warning buynow-btn">Buy Now</button>
-                                </div>
-                            </div>
-                        </div>
-                        {% endfor %}
-                        {% for b in short_Choker_Necklace%}
-                        <div class="col-xs-4 col-md-2 tb">
-                            <div class="card tab-card">
-                                <img src="/media/{{b.image}}" alt="Avatar" style="width:100%; height:243px;">
-                                <div class="container" style="width: 100%;">
-                                    {% if b.product_name|length > 17 %}
-                                    <div><label class="prod-name"><b>{{b.product_name|slice:17}}...</b></label>
-                                    </div>
-                                    {% else %}
-                                    <div><label class="prod-name"><b>{{b.product_name}}</b></label></div>
-                                    {% endif %}
-                                    <div><h5><b>₹</b> {{b.price}}</h5></div>
-                                    <div><h5> 10% off </h5></div>
-                                    <button type="submit" class="btn btn-warning buynow-btn">Buy Now</button>
-                                </div>
-                            </div>
-                        </div>
-                        {% endfor %}
-                        {% for b in long_Necklace_Sets%}
-                        <div class="col-xs-4 col-md-2 tb">
-                            <div class="card tab-card">
-                                <img src="/media/{{b.image}}" alt="Avatar" style="width:100%; height:243px;">
-                                <div class="container" style="width: 100%;">
-                                    {% if b.product_name|length > 17 %}
-                                    <div><label class="prod-name"><b>{{b.product_name|slice:17}}...</b></label>
-                                    </div>
-                                    {% else %}
-                                    <div><label class="prod-name"><b>{{b.product_name}}</b></label></div>
-                                    {% endif %}
-                                    <div><h5><b>₹</b> {{b.price}}</h5></div>
-                                    <div><h5> 10% off </h5></div>
-                                    <button type="submit" class="btn btn-warning buynow-btn">Buy Now</button>
-                                </div>
-                            </div>
-                        </div>
-                        {% endfor %}
-                        {% for b in sliver_Earrings%}
-                        <div class="col-xs-4 col-md-2 tb">
-                            <div class="card tab-card">
-                                <img src="/media/{{b.image}}" alt="Avatar" style="width:100%; height:243px;">
-                                <div class="container" style="width: 100%;">
-                                    {% if b.product_name|length > 17 %}
-                                    <div><label class="prod-name"><b>{{b.product_name|slice:17}}...</b></label>
-                                    </div>
-                                    {% else %}
-                                    <div><label class="prod-name"><b>{{b.product_name}}</b></label></div>
-                                    {% endif %}
-                                    <div><h5><b>₹</b> {{b.price}}</h5></div>
-                                    <div><h5> 10% off </h5></div>
-                                    <button type="submit" class="btn btn-warning buynow-btn">Buy Now</button>
-                                </div>
-                            </div>
-                        </div>
-                        {% endfor %}
-                        {% for b in golden_Earrings%}
-                        <div class="col-xs-4 col-md-2 tb">
-                            <div class="card tab-card">
-                                <img src="/media/{{b.image}}" alt="Avatar" style="width:100%; height:243px;">
-                                <div class="container" style="width: 100%;">
-                                    {% if b.product_name|length > 17 %}
-                                    <div><label class="prod-name"><b>{{b.product_name|slice:17}}...</b></label>
-                                    </div>
-                                    {% else %}
-                                    <div><label class="prod-name"><b>{{b.product_name}}</b></label></div>
-                                    {% endif %}
-                                    <div><h5><b>₹</b> {{b.price}}</h5></div>
-                                    <div><h5> 10% off </h5></div>
-                                    <button type="submit" class="btn btn-warning buynow-btn">Buy Now</button>
-                                </div>
-                            </div>
-                        </div>
-                        {% endfor %}
-                        {% for b in trending_design%}
-                        <div class="col-xs-4 col-md-2 tb">
-                            <div class="card tab-card">
-                                <img src="/media/{{b.image}}" alt="Avatar" style="width:100%; height:243px;">
-                                <div class="container" style="width: 100%;">
-                                    {% if b.product_name|length > 17 %}
-                                    <div><label class="prod-name"><b>{{b.product_name|slice:17}}...</b></label>
-                                    </div>
-                                    {% else %}
-                                    <div><label class="prod-name"><b>{{b.product_name}}</b></label></div>
-                                    {% endif %}
-                                    <div><h5><b>₹</b> {{b.price}}</h5></div>
-                                    <div><h5> 10% off </h5></div>
-                                    <button type="submit" class="btn btn-warning buynow-btn">Buy Now</button>
+                                    <button type="submit" class="btn btn-warning buynow-btn"> <a href="product/{{product.product_name}}">Buy Now</a></button>
                                 </div>
                             </div>
                         </div>
@@ -406,20 +297,20 @@
                 </div>
                 <div id="2" class="tab-pane fade">
                     <div class="row">
-                        {% for b in semi_Bridal_Sets%}
+                        {% for product in Semi_Bridal_Sets %}
                         <div class="col-xs-4 col-md-2 tb">
                             <div class="card tab-card">
-                                <img src="/media/{{b.image}}" alt="Avatar" style="width:100%; height:243px;">
+                                <img src="/media/{{product.image}}" alt="Avatar" style="width:100%; height:243px;">
                                 <div class="container" style="width: 100%;">
-                                    {% if b.product_name|length > 17 %}
-                                    <div><label class="prod-name"><b>{{b.product_name|slice:17}}...</b></label>
+                                    {% if product.product_name|length > 25 %}
+                                    <div><label class="prod-name"><b>{{product.product_name|slice:25}}...</b></label>
                                     </div>
                                     {% else %}
-                                    <div><label class="prod-name"><b>{{b.product_name}}</b></label></div>
+                                    <div><label class="prod-name"><b>{{product.product_name}}</b></label></div>
                                     {% endif %}
-                                    <div><h5><b>₹</b> {{b.price}}</h5></div>
+                                    <div><h5><b>₹</b> {{product.price}}</h5></div>
                                     <div><h5> 10% off </h5></div>
-                                    <button type="submit" class="btn btn-warning buynow-btn">Buy Now</button>
+                                    <button type="submit" class="btn btn-warning buynow-btn"><a href="product/{{product.product_name}}">Buy Now</a></button>
                                 </div>
                             </div>
                         </div>
@@ -428,20 +319,20 @@
                 </div>
                 <div id="3" class="tab-pane fade">
                     <div class="row">
-                        {% for b in short_Choker_Necklace%}
+                        {% for product in short_Choker_Necklace%}
                         <div class="col-xs-4 col-md-2 tb">
                             <div class="card tab-card">
-                                <img src="/media/{{b.image}}" alt="Avatar" style="width:100%; height:243px;">
+                                <img src="/media/{{product.image}}" alt="Avatar" style="width:100%; height:243px;">
                                 <div class="container" style="width: 100%;">
-                                    {% if b.product_name|length > 17 %}
-                                    <div><label class="prod-name"><b>{{b.product_name|slice:17}}...</b></label>
+                                    {% if product.product_name|length > 25 %}
+                                    <div><label class="prod-name"><b>{{product.product_name|slice:25}}...</b></label>
                                     </div>
                                     {% else %}
-                                    <div><label class="prod-name"><b>{{b.product_name}}</b></label></div>
+                                    <div><label class="prod-name"><b>{{product.product_name}}</b></label></div>
                                     {% endif %}
-                                    <div><h5><b>₹</b> {{b.price}}</h5></div>
+                                    <div><h5><b>₹</b> {{product.price}}</h5></div>
                                     <div><h5> 10% off </h5></div>
-                                    <button type="submit" class="btn btn-warning buynow-btn">Buy Now</button>
+                                    <button type="submit" class="btn btn-warning buynow-btn"> <a href="product/{{product.product_name}}">Buy Now</a></button>
                                 </div>
                             </div>
                         </div>
@@ -450,20 +341,20 @@
                 </div>
                 <div id="4" class="tab-pane fade">
                     <div class="row">
-                        {% for b in long_Necklace_Sets%}
+                        {% for product in long_Necklace_Sets%}
                         <div class="col-xs-4 col-md-2 tb">
                             <div class="card tab-card">
-                                <img src="/media/{{b.image}}" alt="Avatar" style="width:100%; height:243px;">
+                                <img src="/media/{{product.image}}" alt="Avatar" style="width:100%; height:243px;">
                                 <div class="container" style="width: 100%;">
-                                    {% if b.product_name|length > 17 %}
-                                    <div><label class="prod-name"><b>{{b.product_name|slice:17}}...</b></label>
+                                    {% if product.product_name|length > 25 %}
+                                    <div><label class="prod-name"><b>{{product.product_name|slice:25}}...</b></label>
                                     </div>
                                     {% else %}
-                                    <div><label class="prod-name"><b>{{b.product_name}}</b></label></div>
+                                    <div><label class="prod-name"><b>{{product.product_name}}</b></label></div>
                                     {% endif %}
-                                    <div><h5><b>₹</b> {{b.price}}</h5></div>
+                                    <div><h5><b>₹</b> {{product.price}}</h5></div>
                                     <div><h5> 10% off </h5></div>
-                                    <button type="submit" class="btn btn-warning buynow-btn">Buy Now</button>
+                                    <button type="submit" class="btn btn-warning buynow-btn"><a href="product/{{product.product_name}}">Buy Now</a></button>
                                 </div>
                             </div>
                         </div>
@@ -472,20 +363,20 @@
                 </div>
                 <div id="5" class="tab-pane fade">
                     <div class="row">
-                        {% for b in sliver_Earrings%}
+                        {% for product in sliver_Earrings%}
                         <div class="col-xs-4 col-md-2 tb">
                             <div class="card tab-card">
-                                <img src="/media/{{b.image}}" alt="Avatar" style="width:100%; height:243px;">
+                                <img src="/media/{{product.image}}" alt="Avatar" style="width:100%; height:243px;">
                                 <div class="container" style="width: 100%;">
-                                    {% if b.product_name|length > 17 %}
-                                    <div><label class="prod-name"><b>{{b.product_name|slice:17}}...</b></label>
+                                    {% if product.product_name|length > 25 %}
+                                    <div><label class="prod-name"><b>{{product.product_name|slice:25}}...</b></label>
                                     </div>
                                     {% else %}
-                                    <div><label class="prod-name"><b>{{b.product_name}}</b></label></div>
+                                    <div><label class="prod-name"><b>{{product.product_name}}</b></label></div>
                                     {% endif %}
-                                    <div><h5><b>₹</b> {{b.price}}</h5></div>
+                                    <div><h5><b>₹</b> {{product.price}}</h5></div>
                                     <div><h5> 10% off </h5></div>
-                                    <button type="submit" class="btn btn-warning buynow-btn">Buy Now</button>
+                                    <button type="submit" class="btn btn-warning buynow-btn"><a href="product/{{product.product_name}}">Buy Now</a></button>
                                 </div>
                             </div>
                         </div>
@@ -494,20 +385,20 @@
                 </div>
                 <div id="6" class="tab-pane fade">
                     <div class="row">
-                        {% for b in golden_Earrings%}
+                        {% for product in Golden_Earrings %}
                         <div class="col-xs-4 col-md-2 tb">
                             <div class="card tab-card">
-                                <img src="/media/{{b.image}}" alt="Avatar" style="width:100%; height:243px;">
+                                <img src="/media/{{product.image}}" alt="Avatar" style="width:100%; height:243px;">
                                 <div class="container" style="width: 100%;">
-                                    {% if b.product_name|length > 17 %}
-                                    <div><label class="prod-name"><b>{{b.product_name|slice:17}}...</b></label>
+                                    {% if product.product_name|length > 25 %}
+                                    <div><label class="prod-name"><b>{{product.product_name|slice:25}}...</b></label>
                                     </div>
                                     {% else %}
-                                    <div><label class="prod-name"><b>{{b.product_name}}</b></label></div>
+                                    <div><label class="prod-name"><b>{{product.product_name}}</b></label></div>
                                     {% endif %}
-                                    <div><h5><b>₹</b> {{b.price}}</h5></div>
+                                    <div><h5><b>₹</b> {{product.price}}</h5></div>
                                     <div><h5> 10% off </h5></div>
-                                    <button type="submit" class="btn btn-warning buynow-btn">Buy Now</button>
+                                    <button type="submit" class="btn btn-warning buynow-btn"><a href="product/{{product.product_name}}">Buy Now</a></button>
                                 </div>
                             </div>
                         </div>
