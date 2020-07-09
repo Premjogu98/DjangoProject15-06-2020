@@ -57,6 +57,10 @@
                 <div class="col-md-4 col-md-offset-4">
                     <label for="username">Username </label><br>
                     <input type="text" id="username" name="username" required><br>
+                    {% if User_exist == 'yes' %}
+                        <label style="color: red;">User Name Exist</label><br>
+                        
+                    {% endif %}
                     {% if user_name == 'Error' %}
                         <label style="color: red;">Username Should Be Lessthan 10 Charecters</label><br>
                     {% endif %}
@@ -72,7 +76,7 @@
                     <label for="password">Password</label><br>
                     <input type="password" id="password" name="password" required><br>
                     {% if password == 'Error' %}
-                        <label style="color: red;">password Should Be Morethan 10 Charecters Or Number</label><br>
+                        <label style="color: red;">Password Should Be Morethan 10 Charecters Or Number</label><br>
                     {% endif %}
                 </div>
                 <div class="col-md-4 col-md-offset-4">

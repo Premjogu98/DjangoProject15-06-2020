@@ -25,5 +25,6 @@ urlpatterns = [
     path('Earrings', views.Earrings_fun, name='Earrings'),
     path('Maang-Tikkas-And-Daminis', views.Maang_Tikkas_And_Daminis_fun, name='Maang-Tikkas-And-Daminis'),
     path('product/<title>', views.product),
+    path('product/<int:id>/<title>', views.product),
 
 ]

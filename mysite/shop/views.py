@@ -11,7 +11,6 @@ from django.db import connection
 glob_login_username = ''
 glob_user = False
 
-
 def index(request):
     global glob_user,glob_login_username
     # return HttpResponse('Hello World')  if you want print text then use HttpResponse
@@ -74,40 +73,16 @@ def handle_login(request):
     if request.method == 'POST':
         login_username = request.POST['lg_username']
         login_password = request.POST['lg_password']
-        print(login_username)
-        print(login_password)
-        user1 = user.objects.all()
-        # print(user1)
-        username = False
-        password = False
-         
-        usernames = []
-        for a in user1:
-            usernames.append(a.Username)
-        # print(usernames)
+        User_list = user.objects.raw(f"SELECT * FROM shop_user WHERE Username='{login_username}' AND PASSWORD='{login_password}';")
 
-        passwords = []
-        for a in user1:
-            passwords.append(a.Password)
-        # print(passwords)
-
-        if login_username in usernames:
-            username = True
-
-        if login_password in passwords:
-            password = True
-
-        if username == True and password == True: 
-            print('Successfully Loged IN')
-            global glob_user, glob_login_username
-            glob_user = True
-            glob_login_username = login_username
-            if glob_login_username == 'admin':
-                return redirect('admin')
-            return redirect('index')
+        if len(User_list) > 0:
+            print('Valid Username And Password')
+            return redirect('/shop/index')
         else:
-            print('invalid credentials, please try again')
-            return redirect('/shop')
+            print('invalid Username Password, please try again')
+            dic = {'invaid_U_P':'Error'}
+            return redirect('/shop/index',dic)
+    
     return HttpResponse('404 - error')
 
 
@@ -207,27 +182,42 @@ def Maang_Tikkas_And_Daminis_fun(request):
     return render(request, 'Maang Tikkas And Daminis.html',dic)
 
 
-def product(request,title):
-    dic = {'title':title}
+def product(request,title,id='Default'):
+
+    dic = {'title':title, 'id':id}
     
     return render(request,'product.html',dic)
 
 def admin(request):
     if request.method == 'POST':
         first_name = request.POST['fname']
+        print(first_name)
         last_name = request.POST['lname']
+        print(last_name)
         email_phone = request.POST['emailphone']
+        print(email_phone)
         password = request.POST['password']
+        print(password)
         username = request.POST['username']
+        print(username)
+
+        Userlist = user.objects.raw("SELECT * FROM shop_user WHERE Username='premjogu';")
+        if len(Userlist) > 0:
+            user2 = user.objects.all()
+            user_name = {'User_exist': "yes",'user':user2}
+            return render(request, 'admin_page.html', user_name)
         if not username.isalnum():
             # messages.error(request, 'Username Should Only Contain Letters And Numbers')
-            user_name = {'user_name_without_symbol': "Error"}
+            user2 = user.objects.all()
+            user_name = {'user_name_without_symbol': "Error",'user':user2}
             return render(request, 'admin_page.html', user_name)
         elif len(username) > 10:
-            user_name = {'user_name':'Error'}
+            user2 = user.objects.all()
+            user_name = {'user_name':'Error','user':user2}
             return render(request,'admin_page.html',user_name)
         elif len(password) < 8:
-            password = {'password':'Error'}
+            user2 = user.objects.all()
+            password = {'password':'Error','user':user2}
             return render(request,'admin_page.html',password)
         user1 = user(Username=username,Password=password,Email_Phone=email_phone,First_name=first_name,Last_name=last_name)
         user1.save()
@@ -237,7 +227,7 @@ def admin(request):
 
 
 def admin_Add_Jewellerys(request):
-
+    
     if request.method == 'POST':
         productname = request.POST['productname']
         Category = request.POST.get('Category','Please Select Category')

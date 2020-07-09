@@ -81,12 +81,12 @@
                         <label id="login-lbl">Login Now</label>
                     </div>
                     <div class="col-sm-12">
-                        <input name="lg_username" id="lg_username" type="text" class="form-control eptxt"
-                               placeholder="Username">
-                        <input name="lg_password" id="lg_password" type="password" id="inputPassword5"
-                               class="form-control pastxt"
-                               aria-describedby="passwordHelpBlock" placeholder="Password">
-
+                        <input name="lg_username" id="lg_username" type="text" class="form-control eptxt" placeholder="Username">
+                        <input name="lg_password" id="lg_password" type="password" class="form-control pastxt" aria-describedby="passwordHelpBlock" placeholder="Password">
+                        {% if invaid_U_P == Error %}
+                            <label style="color: red;">Invalid Username Password</label>
+                        {%endif%}
+                        <label> </label>
                         <button type="submit" class="btn login-btn lbtn">Login</button>
                     </div>
                     <form action="forget_pass" method="post">
@@ -288,7 +288,7 @@
                                     {% endif %}
                                     <div><h5><b>₹</b> {{product.price}}</h5></div>
                                     <div><h5> 10% off </h5></div>
-                                    <button type="submit" class="btn btn-warning buynow-btn"> <a href="product/{{product.product_name}}">Buy Now</a></button>
+                                    <button type="submit" class="btn btn-warning buynow-btn"> <a href="product/{{product.id}}/{{product.product_name}}">Buy Now</a></button>
                                 </div>
                             </div>
                         </div>
@@ -310,7 +310,7 @@
                                     {% endif %}
                                     <div><h5><b>₹</b> {{product.price}}</h5></div>
                                     <div><h5> 10% off </h5></div>
-                                    <button type="submit" class="btn btn-warning buynow-btn"><a href="product/{{product.product_name}}">Buy Now</a></button>
+                                    <button type="submit" class="btn btn-warning buynow-btn"><a href="product/{{product.id}}/{{product.product_name}}">Buy Now</a></button>
                                 </div>
                             </div>
                         </div>
@@ -332,7 +332,7 @@
                                     {% endif %}
                                     <div><h5><b>₹</b> {{product.price}}</h5></div>
                                     <div><h5> 10% off </h5></div>
-                                    <button type="submit" class="btn btn-warning buynow-btn"> <a href="product/{{product.product_name}}">Buy Now</a></button>
+                                    <button type="submit" class="btn btn-warning buynow-btn"> <a href="product/{{product.id}}/{{product.product_name}}">Buy Now</a></button>
                                 </div>
                             </div>
                         </div>
@@ -354,7 +354,7 @@
                                     {% endif %}
                                     <div><h5><b>₹</b> {{product.price}}</h5></div>
                                     <div><h5> 10% off </h5></div>
-                                    <button type="submit" class="btn btn-warning buynow-btn"><a href="product/{{product.product_name}}">Buy Now</a></button>
+                                    <button type="submit" class="btn btn-warning buynow-btn"><a href="product/{{product.id}}/{{product.product_name}}">Buy Now</a></button>
                                 </div>
                             </div>
                         </div>
@@ -376,7 +376,7 @@
                                     {% endif %}
                                     <div><h5><b>₹</b> {{product.price}}</h5></div>
                                     <div><h5> 10% off </h5></div>
-                                    <button type="submit" class="btn btn-warning buynow-btn"><a href="product/{{product.product_name}}">Buy Now</a></button>
+                                    <button type="submit" class="btn btn-warning buynow-btn"><a href="product/{{product.id}}/{{product.product_name}}">Buy Now</a></button>
                                 </div>
                             </div>
                         </div>
@@ -398,7 +398,7 @@
                                     {% endif %}
                                     <div><h5><b>₹</b> {{product.price}}</h5></div>
                                     <div><h5> 10% off </h5></div>
-                                    <button type="submit" class="btn btn-warning buynow-btn"><a href="product/{{product.product_name}}">Buy Now</a></button>
+                                    <button type="submit" class="btn btn-warning buynow-btn"><a href="product/{{product.id}}/{{product.product_name}}">Buy Now</a></button>
                                 </div>
                             </div>
                         </div>
