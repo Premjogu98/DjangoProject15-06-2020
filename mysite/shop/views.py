@@ -183,11 +183,13 @@ def Maang_Tikkas_And_Daminis_fun(request):
 
 
 def product(request,title,id='Default'):
-
     dic = {'title':title, 'id':id}
-    
+    if id != 'Default':
+        Buy_now_product = AllJewellerys.objects.raw(f"SELECT * FROM `shop_alljewellerys` WHERE id='{id}' AND product_name='{str(title)}';")
+        dic = {'Buy_now_product':Buy_now_product}
+        
+        return render(request,'product.html',dic)
     return render(request,'product.html',dic)
-
 def admin(request):
     if request.method == 'POST':
         first_name = request.POST['fname']
@@ -234,14 +236,17 @@ def admin_Add_Jewellerys(request):
         Price = request.POST['Price']
         Discription = request.POST['Discription']
         prod_date = request.POST['prod_date']
-        jewellery_image = request.FILES.get('image','Please Select Image')
-        if jewellery_image == 'Please Select Image':
+        image = request.FILES.get('image','Please Select Image')
+        image1 = request.FILES.get('image1','Please Select Image')
+        image2 = request.FILES.get('image2','Please Select Image')
+        image3 = request.FILES.get('image3','Please Select Image')
+        if image == 'Please Select Image' and image1 == 'Please Select Image' and image2 == 'Please Select Image' and image3 == 'Please Select Image':
             image_error = {'image_error':'Please Select Image'}
             return render(request,'admin_Add_Jewellerys.html',image_error)            
         elif Category == 'Please Select Category':
             error = {'error':'Please Select Category'}
             return render(request,'admin_Add_Jewellerys.html',error)
-        AllJewellerys1 = AllJewellerys(product_name=productname,category=Category,price=Price,desc=Discription,pub_date=prod_date,image=jewellery_image)
+        AllJewellerys1 = AllJewellerys(product_name=productname,category=Category,price=Price,desc=Discription,pub_date=prod_date,image=image,image1=image1,image2=image2,image3=image3)
         AllJewellerys1.save()
     Jewellery = AllJewellerys.objects.all()
     # print(Jewellery)

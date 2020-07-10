@@ -87,16 +87,37 @@
                     <label for="Discription">Discription</label><br>
                     <textarea type="text" id="Discription" name="Discription" rows="5" style="width: 100%;" required></textarea>
                 </div>
-                <div class="col-md-4 col-md-offset-4" style="margin-top: 2%;">
+                <div class="col-md-8 col-md-offset-4" style="margin-top: 2%;">
                     <label for="prod_date">Set Product Date</label><br>
-                    <input type="date" name="prod_date" id="prod_date" max="3000-12-31" min="1000-01-01" class="prod_date" style="width: 100%;" required>
+                    <input type="date" name="prod_date" id="prod_date" max="3000-12-31" min="1000-01-01" class="prod_date" style="width: 50%;" required>
                 </div>
-                <div class="col-md-4 col-md-offset-4" style="margin-top: 2%;">
-                    <label>Add Image</label>
+                <div class="col-md-3 col-md-offset-4" style="margin-top: 2%;">
+                    <label>Add Image 1</label>
                     <input type="file" class="image" name="image"><br>
                     {% if image_error == 'Please Select Image' %}
                         <label style="color: red;">Please Select Image</label><br>
                     {% endif %}
+                </div>
+                <div class="col-md-3 col-md-offset-4" style="margin-top: 2%;">
+                  <label>Add Image 2</label>
+                  <input type="file" class="image1" name="image1"><br>
+                  {% if image_error == 'Please Select Image' %}
+                      <label style="color: red;">Please Select Image</label><br>
+                  {% endif %}
+                </div>
+                <div class="col-md-3 col-md-offset-4" style="margin-top: 2%;">
+                  <label>Add Image 3</label>
+                  <input type="file" class="image2" name="image2"><br>
+                  {% if image_error == 'Please Select Image' %}
+                      <label style="color: red;">Please Select Image</label><br>
+                  {% endif %}
+                </div>
+                <div class="col-md-3 col-md-offset-4" style="margin-top: 2%;">
+                  <label>Add Image 4</label>
+                  <input type="file" class="image3" name="image3"><br>
+                  {% if image_error == 'Please Select Image' %}
+                      <label style="color: red;">Please Select Image</label><br>
+                  {% endif %}
                 </div>
                 <div class="col-md-4 col-md-offset-4">
                     <button type="submit" class="btn btn-outline-success" style="margin-top: 7%;">Add Jewellery</button>

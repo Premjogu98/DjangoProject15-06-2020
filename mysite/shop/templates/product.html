@@ -1,10 +1,63 @@
 {% extends 'all_templates.html' %}
 
 {% block title %} {{ Product_title }} {% endblock %}
+{% block head %} 
 
-{% block body %}
-<h1>Product Title: {{ title }} </h1>
-<h1>Product Id: {{ id }}</h1>
+
+<script type="text/javascript" src="https://unpkg.com/xzoom/dist/xzoom.min.js"></script> 
+<!-- <link rel="stylesheet" href="https://unpkg.com/xzoom/dist/xzoom.css"> -->
 {% endblock %}
 
-{% block script %} {% endblock %}
+{% block body %}
+<!-- {% for product in Buy_now_product %}
+<h1>Product Id: {{ product.id }}</h1>
+<h1>Product Title: {{ product.product_name }} </h1>
+<h1>Product category: {{ product.category }} </h1>
+<h1>Product Discription: {{ product.desc }} </h1>
+<h1>Product Price: {{ product.price }} </h1>
+<h1>Product Image:<a href="/media/{{product.image}}">Open Image</a></h1>
+{% endfor %} -->
+<div class="container">
+    <!-- magnific start -->
+    {% for product in Buy_now_product %}
+    <section id="magnific">
+    <div class="row">
+      
+      <div class="large-6 column col-5">
+        <div class="xzoom-container">
+          
+            <div style="width: 400px;" >
+              <img class="xzoom5" id="xzoom-magnific" src="/media/{{product.image}}" xoriginal="/media/{{product.image}}" />
+            </div>
+            <div class="xzoom-thumbs">
+              <a href="/media/{{product.image}}"><img class="xzoom-gallery5" width="80" src="/media/{{product.image}}"  xpreview="/media/{{product.image}}" title="The description goes here"></a>
+              <a href="/media/{{product.image1}}"><img class="xzoom-gallery5" width="80" src="/media/{{product.image1}}" title="The description goes here"></a>
+              <a href="/media/{{product.image2}}"><img class="xzoom-gallery5" width="80" src="/media/{{product.image2}}" title="The description goes here"></a>
+              <a href="/media/{{product.image3}}"><img class="xzoom-gallery5" width="80" src="/media/{{product.image3}}" title="The description goes here"></a>
+            </div>
+          
+        </div>        
+      </div>
+      <div class="large-7 column col">
+        <div class="row"></div>
+          <h3>Website Name Here</h3><br>
+          <h2>{{ product.product_name }}</h2>
+        </div>
+          here it is
+      </div>
+    </div>
+    </section>  
+    {% endfor %}  
+    <!-- magnific end -->
+
+
+  </div>
+<script src="https://www.jquery-az.com/jquery/js/xZoom/foundation.min.js"></script>
+<script src="https://www.jquery-az.com/jquery/js/xZoom/setup.js"></script>
+{% endblock %}
+
+{% block script %} 
+<script>
+
+</script>
+{% endblock %}

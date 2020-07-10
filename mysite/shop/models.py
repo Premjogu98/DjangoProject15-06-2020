@@ -112,6 +112,9 @@ class AllJewellerys(models.Model):
     desc = models.CharField(max_length=300, default='')
     pub_date = models.DateField()
     image = models.ImageField(upload_to='static/images', default='')
+    image1 = models.ImageField(upload_to='static/images', default='')
+    image2 = models.ImageField(upload_to='static/images', default='')
+    image3 = models.ImageField(upload_to='static/images', default='')
 
     def __str__(self):
         return self.product_name
