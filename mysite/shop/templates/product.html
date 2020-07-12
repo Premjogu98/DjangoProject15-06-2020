@@ -52,19 +52,31 @@
         </div>
         <div class="product-name">
           <span>
-            <h2 style="font-family:Lucida Sans Unicode,Lucida Grande,sans-serif;">{{ product.product_name }}</h2>
+            <h2 style="font-family:Lucida Sans Unicode,Lucida Grande,sans-serif;">
+              {{ product.product_name }}</h2>
+          </span>
+        </div>
+        <div class="product-Discription">
+          <span>
+            <h2 style="font-family:Lucida Sans Unicode,Lucida Grande,sans-serif; font-size: 16px; ">{{ product.desc }}
+            </h2>
           </span>
         </div>
         <div class="product-rating">
           <span>
-            <h4>Product Rating Here</h2>
+            <label style="font-weight: 300;">Rating&nbsp;</label>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star"></span>
+            <span class="fa fa-star"></span><br>
           </span>
         </div>
 
         <div class="product-price">
           <span>
-            <h2>Rs.{{ product.price }} <label class="RP-Product-price"><label
-                  style="text-decoration-line: line-through; font-weight: 300; font-size: 19px;">Rs.529</label><label></label>
+            <h2>Rs.{{ product.price }}.00 <label class="RP-Product-price"><label
+                  style="text-decoration-line: line-through; font-weight: 300; font-size: 19px;">Rs.529.00</label><label></label>
             </h2>
           </span>
         </div>
@@ -84,31 +96,44 @@
     </div>
   </section>
   {% endfor %}
-  <h1 style="font-family: serif;">Related Product</h1>
+  <div class="container">
+    <div class="RP-pro col-12">
+      <h1 style="float: left;">Related Product</h1>
+    </div>
+  </div>
   <div class="container">
     <div class="row">
       {%for RP_Product in Related_product%}
-      <div class="col-sm-3 RP-card">
-        <img class="RP-images" src="/media/{{RP_Product.image}}"><br>
-        <label class="RP-Product-name"
-          style="font-size: 20px; font-family: Verdana, Geneva, sans-serif; font-weight: 500;">{{ RP_Product.product_name }}</label><br>
-        <label class="RP-Product-rating" style="font-family: Verdana, Geneva, sans-serif; font-weight: 300;">Product
-          Rating Here</label><br>
-        <div class="RP-detail">
-          <label class="RP-Product-price"><label
-              style="text-decoration-line: line-through; font-family: Verdana, Geneva, sans-serif; font-weight: 300;">Rs.529</label><label
-              style="font-family: Verdana, Geneva, sans-serif; font-weight: 300;">
-              &nbsp;&nbsp;Rs.{{ RP_Product.price }}</label></label><a href="#"><button class="RP-buy-btn">Buy
-              Now</button></a>
-          <a href="#"><button class="RP-cart">
-              <li class="fa fa-shopping-cart RP-cart"></li>
-            </button></a>
+      <div class="col-sm-3" style="margin-bottom: 11px;">
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <img class="RP-images" src="/media/{{RP_Product.image}}" alt="product image">
+            </div>
+            <div class="flip-card-back">
+              <label class="RP-Product-name">{{ RP_Product.product_name }}</label><br>
+              <span class="fa fa-star checked"></span>
+              <span class="fa fa-star checked"></span>
+              <span class="fa fa-star checked"></span>
+              <span class="fa fa-star"></span>
+              <span class="fa fa-star"></span><br>
+              <label class="RP-Product-price"><label
+                  style="text-decoration-line: line-through; font-family: Verdana, Geneva, sans-serif; font-weight: 300;">Rs.529</label><label
+                  style="font-family: Verdana, Geneva, sans-serif; font-weight: 300;">
+                  &nbsp;&nbsp;Rs.{{ RP_Product.price }}</label></label><br>
+              <a href="#"><button class="RP-buy-btn">Buy
+                  Now</button></a>
+              <a href="#"><button class="RP-buy-btn">
+                  <li class="fa fa-shopping-cart RP-cart">&nbsp;Add To Cart</li>
+                </button></a>
+            </div>
+          </div>
         </div>
       </div>
       {% endfor %}
     </div>
   </div>
-</div>
+  </>
 
 
 

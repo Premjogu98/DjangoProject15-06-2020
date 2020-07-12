@@ -1008,7 +1008,6 @@ border: none;
 width: 250px;
 height: 320px;
 border-radius: 10px;
-margin-top: 17px;
 }
 .RP-card:hover{
       box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -1026,13 +1025,14 @@ margin-top: 17px;
 font-family: serif;
 }
 .RP-buy-btn {
-  background-color: white; 
-  color: black; 
-  border: 2px solid #ff42a8;
+  background-color: #ff42a8; 
+  color: white; 
+  border: 2px solid #ffffff;
 }
 .RP-buy-btn:hover {
   background-color: #ff42a8;
   color: white;
+border: 2px solid #ff42a8
 }
 .RP-cart{
 font-size: 27px;
@@ -1041,4 +1041,67 @@ font-size: 27px;
     margin-left: -4px;
 font-size: 27px;
 font-family: serif;
+}
+
+.flip-card {
+  background-color: transparent;
+  width: 250px; 
+height: 320px;
+border-radius: 10px;
+  perspective: 1000px;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 250px; 
+  height: 320px;
+  text-align: center;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+border-radius: 10px;
+}
+
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  width: 250px;
+   height: 320px;
+  border-radius: 10px;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.flip-card-front {
+  background-color: #bbb;
+  color: black;
+}
+
+.flip-card-back {
+  background-color: #ff42a8;
+  color: white;
+  transform: rotateY(180deg);
+}
+.RP-Product-name{
+font-size: 20px;
+ font-family: Verdana, Geneva, sans-serif;
+ font-weight: 500; 
+margin-top: 20px;
+}
+.checked {
+  color: orange;
+}
+.RP-pro{
+float: left;
+border-bottom: 2px solid hotpink;
+font-family: serif;
+margin-bottom: 10px;
+}
+
+.All-J-product:hover{
+box-shadow: 10px 10px 5px grey;
+transition: 0.4s;
 }
