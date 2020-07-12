@@ -1,14 +1,15 @@
 {% extends 'all_templates.html' %}
 
-{% block title %} {{ Product_title }} {% endblock %}
-{% block head %} 
+{% block title %} {{ title }} {% endblock %}
+{% block head %}
 
 
-<script type="text/javascript" src="https://unpkg.com/xzoom/dist/xzoom.min.js"></script> 
+<script type="text/javascript" src="https://unpkg.com/xzoom/dist/xzoom.min.js"></script>
 <!-- <link rel="stylesheet" href="https://unpkg.com/xzoom/dist/xzoom.css"> -->
 {% endblock %}
 
 {% block body %}
+{% load static %}
 <!-- {% for product in Buy_now_product %}
 <h1>Product Id: {{ product.id }}</h1>
 <h1>Product Title: {{ product.product_name }} </h1>
@@ -18,45 +19,112 @@
 <h1>Product Image:<a href="/media/{{product.image}}">Open Image</a></h1>
 {% endfor %} -->
 <div class="container">
-    <!-- magnific start -->
-    {% for product in Buy_now_product %}
-    <section id="magnific">
+  <!-- magnific start -->
+  {% for product in Buy_now_product %}
+  <section id="magnific">
     <div class="row">
-      
-      <div class="large-6 column col-5">
+
+      <div class="large-6 column">
         <div class="xzoom-container">
-          
-            <div style="width: 400px;" >
-              <img class="xzoom5" id="xzoom-magnific" src="/media/{{product.image}}" xoriginal="/media/{{product.image}}" />
-            </div>
-            <div class="xzoom-thumbs">
-              <a href="/media/{{product.image}}"><img class="xzoom-gallery5" width="80" src="/media/{{product.image}}"  xpreview="/media/{{product.image}}" title="The description goes here"></a>
-              <a href="/media/{{product.image1}}"><img class="xzoom-gallery5" width="80" src="/media/{{product.image1}}" title="The description goes here"></a>
-              <a href="/media/{{product.image2}}"><img class="xzoom-gallery5" width="80" src="/media/{{product.image2}}" title="The description goes here"></a>
-              <a href="/media/{{product.image3}}"><img class="xzoom-gallery5" width="80" src="/media/{{product.image3}}" title="The description goes here"></a>
-            </div>
-          
-        </div>        
+
+          <div style="width: 400px;">
+            <img class="xzoom5" id="xzoom-magnific" src="/media/{{product.image}}"
+              xoriginal="/media/{{product.image}}" />
+          </div>
+          <div class="xzoom-thumbs">
+            <a href="/media/{{product.image}}"><img class="xzoom-gallery5" width="80" src="/media/{{product.image}}"
+                xpreview="/media/{{product.image}}" title="The description goes here"></a>
+            <a href="/media/{{product.image1}}"><img class="xzoom-gallery5" width="80" src="/media/{{product.image1}}"
+                title="The description goes here"></a>
+            <a href="/media/{{product.image2}}"><img class="xzoom-gallery5" width="80" src="/media/{{product.image2}}"
+                title="The description goes here"></a>
+            <a href="/media/{{product.image3}}"><img class="xzoom-gallery5" width="80" src="/media/{{product.image3}}"
+                title="The description goes here"></a>
+          </div>
+
+        </div>
       </div>
       <div class="large-7 column col">
-        <div class="row"></div>
-          <h3>Website Name Here</h3><br>
-          <h2>{{ product.product_name }}</h2>
+        <div class="brand-name">
+          <span>
+            <h4>Website Name Here</h4>
+          </span>
         </div>
-          here it is
+        <div class="product-name">
+          <span>
+            <h2 style="font-family:Lucida Sans Unicode,Lucida Grande,sans-serif;">{{ product.product_name }}</h2>
+          </span>
+        </div>
+        <div class="product-rating">
+          <span>
+            <h4>Product Rating Here</h2>
+          </span>
+        </div>
+
+        <div class="product-price">
+          <span>
+            <h2>Rs.{{ product.price }} <label class="RP-Product-price"><label
+                  style="text-decoration-line: line-through; font-weight: 300; font-size: 19px;">Rs.529</label><label></label>
+            </h2>
+          </span>
+        </div>
+        <div class="row">
+          <div class="col-3">
+            <a href="#">
+              <button class="buy-btn"> Buy Now </button>
+            </a>
+          </div>
+          <div class="col-9">
+            <a href="#">
+              <button class="cart-btn"> Add To Cart </button>
+            </a>
+          </div>
+        </div>
       </div>
     </div>
-    </section>  
-    {% endfor %}  
-    <!-- magnific end -->
-
-
+  </section>
+  {% endfor %}
+  <h1 style="font-family: serif;">Related Product</h1>
+  <div class="container">
+    <div class="row">
+      {%for RP_Product in Related_product%}
+      <div class="col-sm-3 RP-card">
+        <img class="RP-images" src="/media/{{RP_Product.image}}"><br>
+        <label class="RP-Product-name"
+          style="font-size: 20px; font-family: Verdana, Geneva, sans-serif; font-weight: 500;">{{ RP_Product.product_name }}</label><br>
+        <label class="RP-Product-rating" style="font-family: Verdana, Geneva, sans-serif; font-weight: 300;">Product
+          Rating Here</label><br>
+        <div class="RP-detail">
+          <label class="RP-Product-price"><label
+              style="text-decoration-line: line-through; font-family: Verdana, Geneva, sans-serif; font-weight: 300;">Rs.529</label><label
+              style="font-family: Verdana, Geneva, sans-serif; font-weight: 300;">
+              &nbsp;&nbsp;Rs.{{ RP_Product.price }}</label></label><a href="#"><button class="RP-buy-btn">Buy
+              Now</button></a>
+          <a href="#"><button class="RP-cart">
+              <li class="fa fa-shopping-cart RP-cart"></li>
+            </button></a>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
   </div>
+</div>
+
+
+
+</div>
+</div>
+</div>
+
+
+
+
+</div>
 <script src="https://www.jquery-az.com/jquery/js/xZoom/foundation.min.js"></script>
 <script src="https://www.jquery-az.com/jquery/js/xZoom/setup.js"></script>
 {% endblock %}
 
-{% block script %} 
+{% block script %}
 <script>
 
 </script>

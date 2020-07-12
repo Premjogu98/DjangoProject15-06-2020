@@ -11,10 +11,11 @@
         <div class="col-xs-6 col-md-3 prod-card">
             <div class="prod-img">
                 <img class="prod-box" src="/media/{{product.image}}"
-                     style="width: fit-content;height: 379px; border-radius: 8px;">
+                    style="width: fit-content;height: 379px; border-radius: 8px;">
                 <div class="overlay">
                     <div class="text">
-                        <button type="button" class="btn btn-warning buynow-btn"><a href="product/{{product.product_name}}">Buy Now</a></button>
+                        <a href="product/{{product.id}}/{{product.product_name}}"><button type="button"
+                                class="btn btn-warning buynow-btn">Buy Now</button></a>
                     </div>
                 </div>
             </div>
@@ -28,10 +29,11 @@
         <div class="col-xs-6 col-md-3 prod-card">
             <div class="prod-img">
                 <img class="prod-box" src="/media/{{product.image}}"
-                     style="width: fit-content;height: 379px; border-radius: 8px;">
+                    style="width: fit-content;height: 379px; border-radius: 8px;">
                 <div class="overlay">
                     <div class="text">
-                        <button type="button" class="btn btn-warning buynow-btn"><a href="product/{{product.id}}/{{product.product_name}}">Buy Now</a></button>
+                        <a href="product/{{product.id}}/{{product.product_name}}"><button type="button"
+                                class="btn btn-warning buynow-btn">Buy Now</button></a>
                     </div>
                 </div>
             </div>
